@@ -6,4 +6,5 @@ now=$(date)
 echo "$now" > version
 git add version
 git commit -m "updated version!"
-git push git status
+git push
+git status
