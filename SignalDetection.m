@@ -1,4 +1,4 @@
-classdef SignalDetection
+classdef SignalDetection2
     properties
         hits
         misses
@@ -7,12 +7,17 @@ classdef SignalDetection
     end
 
     methods
-        function obj = SignalDetection(hits, misses, falseAlarms, correctRejections)
+        function obj = SignalDetection2(hits, misses, falseAlarms, correctRejections)
             obj.hits = hits;
             obj.misses = misses;
             obj.falseAlarms = falseAlarms;
             obj.correctRejections = correctRejections; 
         end
+	
+	function H = hit_rate(obj)
+            % calculate hit rate (H)
+            H = obj.hits/(obj.hits + obj.misses);
+	end
    
         function d_prime = d_prime(obj)
             hitRate = obj.hits / (obj.hits + obj.misses);
