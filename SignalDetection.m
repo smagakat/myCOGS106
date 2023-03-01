@@ -42,5 +42,16 @@ classdef SignalDetection2
             Multiplication = SignalDetection2(obj.hits .* k, obj.misses .* k, obj.falseAlarms .* k, obj.correctRejections .* k);
         end
 
+	function ROC = plotROC(obj)
+            x = [0, obj.FA, 1];
+            y = [0, obj.hit_rate, 1];
+            ROC = plot( x, y, '-','Marker','*');
+            title( 'ROC Curve' )
+            xlabel( 'False Alarm Rate' )
+            ylabel( 'Hit Rate' )
+            xlim( [0, 1] )
+            ylim( [0, 1] )
+        end
+
     end
 end
